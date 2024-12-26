@@ -53,14 +53,18 @@ function playRound(humanChoice, computerChoice){
     
 };
 
+function showVariables(){
+    console.log('User: ' + humanScore + ' Computer: ' + computerScore + ' Draw: ' + draw);
+}
 function playGame(){
     for (let i = 0; i < 5; i++){
         playRound(getHumanChoice(), getComputerChoice());
+        showVariables();
     }
 }
 
 
 playGame();
-console.log('User: ' + humanScore);
-console.log('Computer: ' + computerScore);
-console.log('Draw: ' + draw);
+// console.log('User: ' + humanScore);
+// console.log('Computer: ' + computerScore);
+// console.log('Draw: ' + draw);

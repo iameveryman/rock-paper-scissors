@@ -1,8 +1,10 @@
 let humanScore = 0;
 let computerScore = 0;
+let draw = 0;
 
 function getComputerChoice(){
     let compChoice = Math.random();
+    //console.log(compChoice);
     if (compChoice >= 0.667){
         return 'rock'
     }
@@ -26,7 +28,8 @@ function playRound(humanChoice, computerChoice){
     const youLose = 'Oh no! ';
     
         //tie scenarios
-    if (humanSelection === computerSelection){
+    if (humanChoice === computerChoice){
+        draw++;
         console.log('We have a tie! Try again')
     } else if (humanChoice === 'rock' && computerChoice === 'scissors'){
         humanScore++;
@@ -50,13 +53,14 @@ function playRound(humanChoice, computerChoice){
     
 };
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(){
+    for (let i = 0; i < 5; i++){
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+}
 
-console.log(playRound(humanSelection, computerSelection));
+
+playGame();
 console.log('User: ' + humanScore);
 console.log('Computer: ' + computerScore);
-
-    //trying to see each function's return
-// console.log(computerSelection);
-// console.log(humanSelection);
+console.log('Draw: ' + draw);
